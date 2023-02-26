@@ -1,1 +1,17 @@
+# ---------------------------------------------------------
+# --
+# ---------------------------------------------------------
+
+# Database configuration params
+spring:
+  datasource:
+    url: jdbc:h2:mem:inditexdb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
 
