@@ -2,8 +2,12 @@
 # --
 # ---------------------------------------------------------
 
-# Database configuration params
+
 spring:
+  application:
+    name: Inditex - PoT
+
+  # Database configuration params
   datasource:
     url: jdbc:h2:mem:inditexdb
     username: sa
@@ -14,4 +18,5 @@ spring:
   h2:
     console:
       enabled: true
+
 
