@@ -1,10 +1,10 @@
 -- ------------------------------------------------------------------------------------
---
+-- SQL Script in order to initilize default data on H2 database
 -- ------------------------------------------------------------------------------------
 
 -- Creates table PRICES
 CREATE TABLE PRICES(
-    ID INT PRIMARY KEY NOT NULL,
+    ID BIGINT PRIMARY KEY NOT NULL,
     BRAND_ID INT NOT NULL,
     START_DATE TIMESTAMP NOT NULL,
     END_DATE TIMESTAMP NOT NULL ,
