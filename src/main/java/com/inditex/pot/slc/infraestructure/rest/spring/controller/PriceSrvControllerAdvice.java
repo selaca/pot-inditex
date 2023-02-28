@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.lang.invoke.MethodHandle;
-import java.util.Arrays;
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -43,6 +42,7 @@ public class PriceSrvControllerAdvice {
         Error errors =
             Error.builder().addMessage(
                 Message.builder()
+                    .alias("Infraestructure Exception")
                     .message(runtimeException.getMessage())
                     .type(Type.ERROR).build())
                 .build();
@@ -63,7 +63,10 @@ public class PriceSrvControllerAdvice {
 
         Message[] messages =
             Stream.concat(fieldErrors.stream(), globalErrors.stream())
-                .map( fieldError -> Message.builder().message(fieldError.getDefaultMessage()).type(Type.ERROR))
+                .map( fieldError -> Message.builder()
+                    .alias("Infraestructure Exception")
+                    .message(fieldError.getDefaultMessage())
+                    .type(Type.FATAL))
                 .toArray(Message[]::new);
 
         return
@@ -74,6 +77,29 @@ public class PriceSrvControllerAdvice {
                     PriceResponseDTO.builder()
                         .errors(
                             Error.builder().addMessages(messages).build())
+                        .build());
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public ResponseEntity<PriceResponseDTO> handleConstraintViolatedException(ConstraintViolationException ex) {
+
+        Message[] messages =
+            ex.getConstraintViolations().stream()
+                .map(constraintViolation -> Message.builder()
+                    .alias("Infraestructure Exception")
+                    .message(constraintViolation.getMessage())
+                    .type(Type.FATAL))
+                .toArray(Message[]::new);
+
+        return
+            ResponseEntity
+                .status(
+                        HttpStatus.BAD_REQUEST)
+                .body(
+                    PriceResponseDTO.builder()
+                        .errors(
+                                Error.builder().addMessages(messages).build())
                         .build());
     }
 }

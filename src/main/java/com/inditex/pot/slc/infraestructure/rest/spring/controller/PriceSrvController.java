@@ -1,5 +1,6 @@
 package com.inditex.pot.slc.infraestructure.rest.spring.controller;
 
+import com.inditex.pot.slc.application.service.IPriceService;
 import com.inditex.pot.slc.application.service.impl.PriceService;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceDTO;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceRequestDTO;
@@ -24,12 +25,12 @@ import javax.validation.Valid;
 @Validated
 public class PriceSrvController {
 
-    private final PriceService priceService;
+    private final IPriceService priceService;
     private final IPriceMapper mapper;
 
     @ApiOperation(
             value = "/product-price",
-            notes = "Obtencion de los 5 pokemons con atributo maximo pasado como parámetro, con attributo game_indices.version_name = 'red' ")
+            notes = "Gets current price of productId in date ")
     @ApiResponses( {
         @ApiResponse(
             code = 200,
@@ -48,7 +49,7 @@ public class PriceSrvController {
         value = "/product-price",
         consumes = { "application/json"},
         produces = { "application/json" })
-    ResponseEntity<PriceResponseDTO> getProductPrice(@Valid @RequestBody PriceRequestDTO priceRequest) {
+    ResponseEntity<PriceResponseDTO> getProductPrice(@RequestBody PriceRequestDTO priceRequest) {
 
         PriceDTO priceDTO = mapper.toDTO(
             priceService.getPriceByDate(

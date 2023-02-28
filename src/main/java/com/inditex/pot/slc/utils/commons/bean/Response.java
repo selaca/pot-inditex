@@ -4,7 +4,8 @@ import com.inditex.pot.slc.utils.commons.exceptions.model.Error;
 import lombok.Builder;
 import lombok.Data;
 
-
+@Builder
+@Data
 public class Response<T> {
     private T data;
     private Error errors;

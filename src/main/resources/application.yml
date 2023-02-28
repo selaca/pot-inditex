@@ -4,15 +4,12 @@
 
 server:
   port: 9088
+
 spring:
   application:
     name: Inditex - PoT
 
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-
-  # Database configuration params
+  # Database configuration params for H2
   datasource:
     url: jdbc:h2:mem:inditexdb
     username: sa

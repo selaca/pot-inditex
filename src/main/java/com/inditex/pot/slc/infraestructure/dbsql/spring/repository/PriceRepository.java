@@ -20,10 +20,9 @@ public class PriceRepository implements IPriceRepository {
             int productId,
             int brandId) {
 
-        PriceEntity entity =
-            springPriceRepository.findPriceByDate(date, productId, brandId);
-
-        Price price = priceEntityMapper.toDomain(entity);
-        return price;
+        return
+            priceEntityMapper.toDomain(
+                springPriceRepository
+                    .findPriceByDate(date, productId, brandId));
     }
 }
