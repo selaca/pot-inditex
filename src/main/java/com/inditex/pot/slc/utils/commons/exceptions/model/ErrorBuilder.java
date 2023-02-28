@@ -1,4 +1,4 @@
-package com.inditex.pot.slc.utils.exceptions.model;
+package com.inditex.pot.slc.utils.commons.exceptions.model;
 
 import lombok.Data;
 
@@ -24,6 +24,18 @@ public class ErrorBuilder {
             (Message[])append2Array(
                 getMessages(),
                 message));
+
+        return this;
+    }
+
+    public ErrorBuilder addMessages(Message[] messages) {
+        Arrays.stream(messages)
+            .forEach( m -> {
+                setMessages(
+                    (Message[])append2Array(
+                        getMessages(),
+                        m));
+                });
 
         return this;
     }

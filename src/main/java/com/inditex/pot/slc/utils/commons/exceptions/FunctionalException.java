@@ -1,8 +1,8 @@
-package com.inditex.pot.slc.utils.exceptions;
+package com.inditex.pot.slc.utils.commons.exceptions;
 
-import com.inditex.pot.slc.utils.exceptions.model.Message;
-import com.inditex.pot.slc.utils.exceptions.model.Type;
-import com.inditex.pot.slc.utils.exceptions.model.Error;
+import com.inditex.pot.slc.utils.commons.exceptions.model.Message;
+import com.inditex.pot.slc.utils.commons.exceptions.model.Type;
+import com.inditex.pot.slc.utils.commons.exceptions.model.Error;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
@@ -34,6 +34,6 @@ public class FunctionalException extends RuntimeException {
 
     public FunctionalException(String alias, String message, Type typeError, HttpStatus httpStatus) {
         this(alias, message, typeError);
-        this.httpStatus = Optional.of(httpStatus);
+        this.httpStatus = Optional.ofNullable(httpStatus);
     }
 }

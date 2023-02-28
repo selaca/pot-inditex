@@ -1,4 +1,4 @@
-package com.inditex.pot.slc.utils.exceptions.model;
+package com.inditex.pot.slc.utils.commons.exceptions.model;
 
 /**
  *

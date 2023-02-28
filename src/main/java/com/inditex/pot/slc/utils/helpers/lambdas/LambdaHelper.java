@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
- * Clase de helper de funciones wrappers/decorators a lambdas
+ * Helper class of wrappers/decorators to lambdas
  * 
  * @author slc
  * @since 1.0.0

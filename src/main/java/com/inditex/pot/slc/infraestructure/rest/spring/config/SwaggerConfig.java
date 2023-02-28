@@ -18,8 +18,8 @@ import java.util.Collections;
  * @author slc
  * @since 1.0.0
  */
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
     @Bean
     public Docket api() {

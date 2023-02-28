@@ -1,25 +1,31 @@
 package com.inditex.pot.slc.infraestructure.rest.spring.controller;
 
+import com.inditex.pot.slc.application.service.impl.PriceService;
+import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceDTO;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceRequestDTO;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceResponseDTO;
-import com.sun.istack.NotNull;
+import com.inditex.pot.slc.infraestructure.rest.spring.mapper.IPriceMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import lombok.AllArgsConstructor;
-import org.hibernate.annotations.NotFound;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("inditex/prices/v1")
 @Api(value = "/inditext/prices/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 public class PriceSrvController {
+
+    private final PriceService priceService;
+    private final IPriceMapper mapper;
 
     @ApiOperation(
             value = "/product-price",
@@ -42,8 +48,19 @@ public class PriceSrvController {
         value = "/product-price",
         consumes = { "application/json"},
         produces = { "application/json" })
-    ResponseEntity<PriceResponseDTO> getProductPrice(@NotNull @RequestBody PriceRequestDTO priceRequest) {
-        return ResponseEntity.ok().body(null);
+    ResponseEntity<PriceResponseDTO> getProductPrice(@Valid @RequestBody PriceRequestDTO priceRequest) {
+
+        PriceDTO priceDTO = mapper.toDTO(
+            priceService.getPriceByDate(
+                priceRequest.getDate(),
+                priceRequest.getProductId(),
+                priceRequest.getBrandId()));
+
+        return
+            ResponseEntity
+                .ok()
+                .body(
+                    PriceResponseDTO.builder().data(priceDTO).build());
     }
 
 }
