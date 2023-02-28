@@ -12,13 +12,14 @@
     <groupId>com.inditex.pot</groupId>
     <artifactId>slc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>slc</name>
+    <name>PoT Inditext</name>
     <description>PoT application for Inditex company</description>
 
     <properties>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <swagger2.version>2.9.2</swagger2.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <lombok.version>1.18.22</lombok.version>
@@ -67,6 +68,7 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
@@ -120,11 +122,6 @@
                             <version>0.2.0</version>
                         </dependency>
                     </annotationProcessorPaths>
-                    <compilerArgs>
-                        <compilerArg>
-                            -Amapstruct.defaultComponentModel=spring
-                        </compilerArg>
-                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
