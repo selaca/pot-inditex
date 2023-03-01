@@ -2,6 +2,7 @@ package com.inditex.pot.slc.infraestructure.rest.spring.controller;
 
 import com.inditex.pot.slc.application.service.IPriceService;
 import com.inditex.pot.slc.application.service.impl.PriceService;
+import com.inditex.pot.slc.infraestructure.config.spring.aspect.logging.annotation.Logging;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceDTO;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceRequestDTO;
 import com.inditex.pot.slc.infraestructure.rest.spring.dto.PriceResponseDTO;
@@ -49,6 +50,7 @@ public class PriceSrvController {
         value = "/product-price",
         consumes = { "application/json"},
         produces = { "application/json" })
+    @Logging("INFO")
     ResponseEntity<PriceResponseDTO> getProductPrice(@RequestBody PriceRequestDTO priceRequest) {
 
         PriceDTO priceDTO = mapper.toDTO(
