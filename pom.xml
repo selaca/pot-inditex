@@ -15,6 +15,14 @@
     <name>PoT Inditext</name>
     <description>PoT application for Inditex company</description>
 
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>spring-doc-repo</id>-->
+<!--            <name>spring-doc-repo</name>-->
+<!--            <url>https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+
     <properties>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -81,22 +89,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger2.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mapstruct</groupId>
-                    <artifactId>mapstruct</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
         </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger2.version}</version>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -125,7 +124,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
 </project>

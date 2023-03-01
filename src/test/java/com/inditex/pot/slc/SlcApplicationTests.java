@@ -38,7 +38,7 @@ class SlcApplicationTests {
                 35455,
                 1);
 
-        webTestClient.post().uri("/inditex/prices/v1/product-price")
+        webTestClient.post().uri("/v1/inditex/prices/product-price")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .body(Mono.just(priceRequestDTO), PriceRequestDTO.class)
@@ -61,7 +61,7 @@ class SlcApplicationTests {
               35455,
                 1);
 
-        webTestClient.post().uri("/inditex/prices/v1/product-price")
+        webTestClient.post().uri("/v1/inditex/prices/product-price")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .body(Mono.just(priceRequestDTO), PriceRequestDTO.class)
@@ -84,7 +84,7 @@ class SlcApplicationTests {
                 35455,
                 1);
 
-        webTestClient.post().uri("/inditex/prices/v1/product-price")
+        webTestClient.post().uri("/v1/inditex/prices/product-price")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .body(Mono.just(priceRequestDTO), PriceRequestDTO.class)
@@ -107,7 +107,7 @@ class SlcApplicationTests {
                 35455,
                 1);
 
-        webTestClient.post().uri("/inditex/prices/v1/product-price")
+        webTestClient.post().uri("/v1/inditex/prices/product-price")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .body(Mono.just(priceRequestDTO), PriceRequestDTO.class)
@@ -130,7 +130,7 @@ class SlcApplicationTests {
                 35455,
                 1);
 
-        webTestClient.post().uri("/inditex/prices/v1/product-price")
+        webTestClient.post().uri("/v1/inditex/prices/product-price")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .body(Mono.just(priceRequestDTO), PriceRequestDTO.class)
@@ -153,7 +153,7 @@ class SlcApplicationTests {
                 35455,
                 2);
 
-        webTestClient.post().uri("/inditex/prices/v1/product-price")
+        webTestClient.post().uri("/v1/inditex/prices/product-price")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON)
             .body(Mono.just(priceRequestDTO), PriceRequestDTO.class)
