@@ -54,5 +54,4 @@ In order to test Rest API library, run microservice and access to OpenAPI v3 doc
 ## Author
 Sergio Lafuente Cabeza
 
-selaca@gmail.com
 
