@@ -51,6 +51,23 @@ In order to test Rest API library, run microservice and access to OpenAPI v3 doc
 
 ***http://<server_name>:8082/swagger-ui.html*** 
 
+### Example to use
+   ```bash
+   curl -X 'POST' \
+    'http://localhost:8082/v1/inditex/prices/product-price' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "date": "2020-06-14 10.00.00",
+      "productId": 35455,
+      "brandId": 1
+}'
+   ```
+
+**Note**
+
+Date format parameter: ***"yyyy-MM-dd HH.mm.ss"***
+
 ## Author
 Sergio Lafuente Cabeza
 

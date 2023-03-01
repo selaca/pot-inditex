@@ -11,7 +11,7 @@
 
     <groupId>com.inditex.pot</groupId>
     <artifactId>slc</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>PoT Inditext</name>
     <description>PoT application for Inditex company</description>
 
